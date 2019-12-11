@@ -35,7 +35,7 @@ steps:
 
     
 - task: DotNet@2
-displayName: 'dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+  displayName: 'dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 inputs:
   command: publish
   publishWebProjects: false
@@ -44,7 +44,7 @@ inputs:
   zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
-displayName: 'publish artifacts'
+  displayName: 'publish artifacts'
 
 
 
