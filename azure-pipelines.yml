@@ -33,6 +33,18 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+    
+- task: DotNet@2
+displayName: 'dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+inputs:
+  command: publish
+  publishWebProjects: false
+  projects: 'MyWinApp/MyWinApp.csproj'
+  arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+  zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+displayName: 'publish artifacts'
 
 
 
